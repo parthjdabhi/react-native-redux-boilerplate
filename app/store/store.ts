@@ -21,10 +21,22 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
+const middleware: any = [
+  /* other middlewares */
+];
+
+if (__DEV__) {
+  const createDebugger = require('redux-flipper').default;
+  middleware.push(createDebugger());
+}
+
 export const store = configureStore({
   reducer: persistedReducer,
   middleware: getDefaultMiddleware =>
-    getDefaultMiddleware({immutableCheck: false, serializableCheck: false}),
+    getDefaultMiddleware({
+      immutableCheck: false,
+      serializableCheck: false,
+    }).concat(middleware),
 });
 
 export const persistor = persistStore(store);
