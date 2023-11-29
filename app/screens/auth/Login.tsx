@@ -23,8 +23,8 @@ interface ValuesType {
 const initialValues: ValuesType = {username: '', password: ''};
 
 const LoginSchema = Yup.object().shape({
-  username: Yup.string().min(5, 'Too Short!').required('Required'),
-  password: Yup.string().min(5, 'Too Short!').required('Required'),
+  username: Yup.string().min(5, 'Too Short!').required(''),
+  password: Yup.string().min(5, 'Too Short!').required(''),
 });
 
 const Login = () => {

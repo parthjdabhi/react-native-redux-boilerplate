@@ -10,6 +10,9 @@ import {useTheme} from '../theme/useTheme';
 import Layout from '../components/Layout';
 import Card from '../components/Card';
 import ListItem from '../components/ListItem';
+import {MaterialIcon} from '../theme/icon';
+import {Applogo} from '../assets/svgs';
+// import Icon from 'react-native-vector-icons/Ionicons';
 
 const Tasks = () => {
   const {theme} = useTheme();
@@ -50,6 +53,16 @@ const Tasks = () => {
         contentContainerStyle={styles.flatList}
       />
       {/* Tasks Listing ends here */}
+
+      {/* Add icons here */}
+      <MaterialIcon size="large" color="purple" name="home" />
+      <MaterialIcon size="extraLarge" color="black" name="github" />
+
+      {/* SVG Image */}
+      {/* <Image source={Applogo} resizeMode={'contain'} style={{}} /> */}
+      <Applogo />
+      {/* Custom size svg */}
+      <Applogo width={100} height={100} />
 
       <Card
         style={[styles.inputCard, {borderTopColor: theme?.cardBorderColor}]}>
